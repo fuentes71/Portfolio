@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Folder } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { TerminalLine } from './TerminalLine';
 import { portfolioData } from '../data/portfolioData';
 import { usePortfolioStore } from '../core/store/usePortfolioStore';
 import { InteractiveBackground } from './InteractiveBackground';
+import { FloatingLangToggle } from '../shared/components/LayoutElements';
 
 type Line = {
   id: string;
@@ -12,14 +13,14 @@ type Line = {
   isCommand?: boolean;
 };
 
-
 interface TerminalProps {
   onComplete: () => void;
 }
 
 export const Terminal: React.FC<TerminalProps> = ({ onComplete }) => {
-  const { lang, setLang } = usePortfolioStore();
-
+  const dragControls = useDragControls();
+  const constraintsRef = useRef<HTMLDivElement>(null);
+  const { lang } = usePortfolioStore();
   const t = portfolioData[lang].ui.terminal;
 
   const commands = [
@@ -204,20 +205,28 @@ export const Terminal: React.FC<TerminalProps> = ({ onComplete }) => {
   };
 
   return (
-    <div className="terminal-wrapper">
+    <div className="terminal-wrapper" ref={constraintsRef}>
       <InteractiveBackground />
       
-      {/* Language Toggle */}
-      <button 
-        onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
-        className="lang-toggle"
+      <FloatingLangToggle />
+
+      <motion.div
+        className="terminal-window"
+        drag
+        dragControls={dragControls}
+        dragListener={false}
+        dragMomentum={false}
+        dragElastic={0}
+        dragConstraints={constraintsRef}
+        whileHover={{ scale: 1.005, boxShadow: '0 32px 80px rgba(0,0,0,0.6)' }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       >
-        {lang === 'pt' ? 'EN' : 'PT'}
-      </button>
-
-      <div className="terminal-window">
-
-        <div className="terminal-header">
+        <motion.div
+          className="terminal-header"
+          onPointerDown={(e) => dragControls.start(e)}
+          style={{ cursor: 'grab' }}
+          whileTap={{ cursor: 'grabbing', scale: 0.995 }}
+        >
           <div className="macos-buttons">
             <div className="macos-btn close"></div>
             <div className="macos-btn min"></div>
@@ -228,7 +237,7 @@ export const Terminal: React.FC<TerminalProps> = ({ onComplete }) => {
             <Folder size={14} className="folder-icon" />
             <span>{t.labels.title}</span>
           </div>
-        </div>
+        </motion.div>
 
         <div className="terminal-content">
           {!isBooting && (
@@ -343,8 +352,7 @@ export const Terminal: React.FC<TerminalProps> = ({ onComplete }) => {
           <span>Ctrl+Click: {t.footer.click}</span>
           <span>ESC: {t.footer.esc}</span>
         </div>
-
-      </div>
+      </motion.div>
     </div>
   );
 };

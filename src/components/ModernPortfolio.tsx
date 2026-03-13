@@ -31,7 +31,7 @@ export const ModernPortfolio: React.FC = () => {
 
   return (
     <motion.div
-      className="modern-gui overflow-x-hidden selection:bg-[#ff4d05] selection:text-white"
+      className="modern-gui"
       style={{ backgroundColor: FIXED_BG, color: "var(--section-text)" }}
     >
       <Navigation />

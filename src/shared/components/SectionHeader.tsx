@@ -14,13 +14,14 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ title, subtitle, a
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={`section-header-container text-${align}`}
+      className="section-header-container"
+      data-align={align}
     >
-      <h2 className={`section-head justify-${align === 'center' ? 'center' : 'start'}`}>
+      <h2 className="section-head">
         {title}
       </h2>
-      {subtitle && <p className={`section-subtitle ${align === 'center' ? 'mx-auto' : ''}`}>{subtitle}</p>}
-      <div className={`section-line ${align === 'center' ? 'mx-auto' : ''}`} />
+      {subtitle && <p className="section-subtitle">{subtitle}</p>}
+      <div className="section-line" />
     </motion.div>
   );
 };

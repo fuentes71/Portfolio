@@ -11,25 +11,6 @@
   padding: 1rem;
 }
 
-.lang-toggle {
-  position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
-  z-index: 50;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: $color-text-muted;
-  font-size: 0.75rem;
-  transition: color 0.3s;
-  cursor: pointer;
-
-  &:hover {
-    color: white;
-  }
-}
 
 .terminal-window {
   background: $color-bg-terminal;

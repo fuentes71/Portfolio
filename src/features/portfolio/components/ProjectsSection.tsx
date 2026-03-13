@@ -40,9 +40,9 @@ export const ProjectsSection: React.FC = () => {
                 </div>
                 <h3 className="project-name">{project.title}</h3>
                 <p className="project-description">{project.desc}</p>
-                <div className="flex gap-4 items-center">
-                   <button className="project-btn">{t.btn}</button>
-                   <div className="flex gap-3 items-center">
+                <div className="project-actions">
+                  <button className="project-btn">{t.btn}</button>
+                  <div className="project-links">
                     <ExternalLink size={18} />
                   </div>
                 </div>
@@ -89,7 +89,7 @@ export const ProjectsSection: React.FC = () => {
                   
                   <div className="modal-footer">
                     <button className="project-btn">{t.btn}</button>
-                    <a href="#" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors">
+                    <a href="#" className="modal-link">
                       <ExternalLink size={20} />
                       <span>Live Preview</span>
                     </a>

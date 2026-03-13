@@ -113,3 +113,17 @@
     color: var(--section-accent);
   }
 }
+
+.hero-title-typed {
+  color: var(--section-accent);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--section-accent);
+  font-weight: 300;
+  opacity: 0.8;
+}

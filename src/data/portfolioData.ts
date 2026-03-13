@@ -116,10 +116,10 @@ export const portfolioData: PortfolioData = {
     profile: `Engenheiro de Software com mais de 2 anos de experiência no desenvolvimento de sistemas distribuídos, APIs escaláveis e aplicações orientadas a dados, atuando principalmente com Node.js, TypeScript e Nest.JS.`,
     experience: [
       {
-        "role": "Engenheiro de Software",
-        "company": "Concert Technologies",
-        "period": "Mar 2025 — Dez 2025",
-        "description": [
+        role: "Engenheiro de Software",
+        company: "Concert Technologies",
+        period: "Mar 2025 — Dez 2025",
+        description: [
           "Desenvolvimento de plataforma IoT para telemetria em tempo real de máquinas e frotas.",
           "Desenvolvimento de microserviços e APIs REST com Node.js, TypeScript e NestJS.",
           "Implementação de mensageria com Kafka e MQTT para integração com dispositivos IoT.",
@@ -130,10 +130,10 @@ export const portfolioData: PortfolioData = {
         ]
       },
       {
-        "role": "Desenvolvedor Front-end",
-        "company": "Freelance",
-        "period": "Mar 2025 — Maio 2025",
-        "description": [
+        role: "Desenvolvedor Front-end",
+        company: "Freelance",
+        period: "Mar 2025 — Maio 2025",
+        description: [
           "Desenvolvimento de landing page para plataforma de rastreamento de encomendas.",
           "Implementação com React.js e Tailwind CSS utilizando abordagem mobile-first.",
           "Componentização e arquitetura reutilizável de frontend.",
@@ -141,13 +141,13 @@ export const portfolioData: PortfolioData = {
         ]
       },
       {
-        "role": "Desenvolvedor Full Stack",
-        "company": "Growdev",
-        "period": "Fev 2024 — Mar 2025",
-        "description": [
+        role: "Desenvolvedor Full Stack",
+        company: "Growdev",
+        period: "Fev 2024 — Mar 2025",
+        description: [
           "Desenvolvimento de sistema MES para monitoramento de produção em tempo real.",
           "Backend com Node.js, TypeScript e NestJS utilizando arquitetura de microserviços.",
-          "Implementação de Test Driven Development (TDD) com mais de 200 testes automatizados.",
+          "Implementação de Test Driven Development (TDD) with mais de 200 testes automatizados.",
           "Desenvolvimento de interfaces industriais utilizando Angular.",
           "Configuração de ambientes com Docker e otimização do fluxo de deploy.",
           "Desenvolvimento de APIs REST e integração entre sistemas."
