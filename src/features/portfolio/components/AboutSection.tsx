@@ -23,7 +23,7 @@ export const AboutSection: React.FC = () => {
         <div className="about-grid">
           <div className="image-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80"
+              src="/Portfolio/images/profile.png"
               alt="Profile"
             />
             <div className="accent-box" />
@@ -59,7 +59,7 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            <button className="btn btn-primary" onClick={() => window.open('/CV.pdf', '_blank')}>
+            <button className="btn btn-primary" onClick={() => window.open('/Portfolio/CV.pdf', '_blank')}>
               {t.download}
             </button>
           </div>
