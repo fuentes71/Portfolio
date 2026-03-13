@@ -1,0 +1,263 @@
+@use "variables" as *;
+
+.terminal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  @include flex-center;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.lang-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 50;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $color-text-muted;
+  font-size: 0.75rem;
+  transition: color 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.terminal-window {
+  background: $color-bg-terminal;
+  backdrop-filter: blur(8px);
+  width: 100%;
+  max-width: 900px;
+  height: 85vh;
+  border-radius: 0.5rem;
+  box-shadow: $shadow-lg;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid $color-border;
+}
+
+.terminal-header {
+  @include flex-center;
+  padding: 0.75rem;
+  border-bottom: 1px solid $color-border;
+  position: relative;
+  background: $color-header-terminal;
+}
+
+.macos-buttons {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  
+  .macos-btn {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    
+    &.close { background: $color-mac-close; }
+    &.min { background: $color-mac-min; }
+    &.max { background: $color-mac-max; }
+  }
+}
+
+.terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a9b1d6;
+  font-size: 13px;
+  font-weight: 500;
+  
+  .folder-icon {
+    color: $color-accent-blue;
+  }
+}
+
+.terminal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+
+  // Custom Scrollbar
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-accent-purple, 0.2);
+    border-radius: 10px;
+
+    &:hover {
+      background: rgba($color-accent-purple, 0.4);
+    }
+  }
+
+  // Firefox compatibility
+  scrollbar-width: thin;
+  scrollbar-color: rgba($color-accent-purple, 0.2) transparent;
+  
+  @media (max-width: 640px) {
+    padding: 1rem;
+  }
+}
+
+.portfolio-title {
+  font-family: $font-pixel;
+  color: $color-accent-purple;
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  
+  @media (max-width: 640px) {
+    font-size: 24px;
+  }
+}
+
+.contact-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  
+  .contact-row {
+    display: flex;
+    gap: 1rem;
+    width: 250px;
+    
+    @media (max-width: 640px) {
+      width: auto;
+      justify-content: center;
+    }
+  }
+  
+  .contact-label {
+    color: $color-accent-purple;
+    font-weight: bold;
+    width: 6.5rem;
+    white-space: nowrap;
+
+    @media (max-width: 640px) {
+      width: auto;
+      margin-right: 0.5rem;
+    }
+  }
+  
+  .contact-value {
+    color: $color-accent-violet;
+    width: 100%;
+    a {
+      transition: opacity 0.3s;
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.separator {
+  width: 100%;
+  padding: 0 10%;
+  margin: 1.5rem 0;
+  
+  .separator-line {
+    display: block;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba($color-accent-purple, 0.5), transparent);
+    box-shadow: 0 0 10px rgba($color-accent-purple, 0.2);
+  }
+}
+
+.interactive-area {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.terminal-line {
+  margin-bottom: 1rem;
+  
+  &.boot-text {
+    color: $color-accent-blue;
+    font-size: 13px;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+}
+
+.boot-prompt {
+  color: #bb9af7;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.cmd-prompt {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: left;
+  
+  .cmd-user {
+    color: $color-accent-purple;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .cmd-question {
+    color: $color-accent-purple;
+    margin-right: 0.75rem;
+    font-weight: 500;
+  }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: $color-text-primary;
+  animation: blink 1s step-end infinite;
+  margin-left: 0.25rem;
+  
+  &.gray {
+    background-color: $color-text-dim;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.footer-hotkeys {
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid $color-border;
+  color: $color-text-muted;
+  font-size: 12px;
+  display: flex;
+  gap: 1.5rem;
+  
+  @media (max-width: 640px) {
+    display: none;
+  }
+}

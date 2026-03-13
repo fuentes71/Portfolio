@@ -1,0 +1,140 @@
+@use "sass:color";
+@use "./styles/variables" as *;
+@use "./styles/terminal";
+@use "./styles/navigation";
+@use "./styles/hero";
+@use "./styles/about";
+@use "./styles/services";
+@use "./styles/projects";
+@use "./styles/experience";
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Press+Start+2P&display=swap');
+
+// ==========================================================================
+// RESET & BASE
+// ==========================================================================
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-mono;
+  min-height: 100vh;
+  background-color: var(--section-bg, $color-bg-deep);
+  color: var(--section-text, $color-text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.section-line {
+  height: 4px;
+  width: 60px;
+  background-color: var(--accent-color, #ff4d05);
+  margin-top: 1rem;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+// ==========================================================================
+// SHARED CLASSES
+// ==========================================================================
+
+.container-lg {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  @include btn-base;
+
+  &.btn-primary {
+    background-color: #ff4d05;
+    color: var(--section-bg, #000000);
+    box-shadow: 0 10px 20px -5px rgba(255, 77, 5, 0.3);
+
+    &:hover {
+      background-color: var(--accent-color, #ff4d05);
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-color, #ff4d05);
+    color: var(--accent-color, #ff4d05);
+
+    &:hover {
+      background-color: var(--accent-color, #ff4d05);
+      color: #000000;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.modern-gui {
+  background-color: var(--section-bg, #111111);
+  color: var(--section-text, #e5e7eb);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.1s ease;
+}
+
+// Utility equivalents for standard layout
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.w-full {
+  width: 100%;
+}
+
+// ==========================================================================
+// END OF FILE
+// ==========================================================================

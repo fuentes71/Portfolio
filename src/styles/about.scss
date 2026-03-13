@@ -1,0 +1,145 @@
+@use "variables" as *;
+
+.about-section {
+  scroll-margin-top: 5rem;
+  padding: 100px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.image-wrapper {
+  position: relative;
+  padding: 1rem;
+  border: 2px solid rgba($color-accent-orange, 0.2);
+  border-radius: 0.5rem;
+
+  img {
+    width: 100%;
+    border-radius: 0.25rem;
+    background-color: #111;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+
+  .accent-box {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: $color-accent-orange;
+    z-index: -10;
+    border-radius: 0.5rem;
+  }
+}
+
+.about-text-content {
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ffffff;
+
+    span {
+      color: $color-text-secondary;
+    }
+  }
+
+  p {
+    color: $color-text-muted;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+}
+
+.personal-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+
+  .info-item {
+    .info-label {
+      display: block;
+      color: $color-text-secondary;
+      opacity: 0.9;
+      font-weight: 800;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.1em;
+    }
+
+    .info-value {
+      font-weight: bold;
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.section-header-container {
+  margin-bottom: 4rem;
+
+  &.text-center {
+    text-align: center;
+  }
+
+  &.text-left {
+    text-align: left;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+
+    &.justify-center {
+      justify-content: center;
+    }
+
+    &.justify-start {
+      justify-content: flex-start;
+    }
+  }
+
+  .section-subtitle {
+    color: $color-text-muted;
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin-top: 0.5rem;
+
+    &.mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .section-line {
+    width: 5rem;
+    height: 4px;
+    background-color: $color-accent-orange;
+    margin-top: 1.5rem;
+
+    &.mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

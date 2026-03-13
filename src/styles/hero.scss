@@ -1,0 +1,115 @@
+@use "variables" as *;
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 1rem 0;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 5rem;
+}
+
+.main-nav {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  z-index: 1000;
+
+  .nav-glass {
+    @include glass;
+    background: color-mix(in srgb, var(--section-bg), transparent 20%);
+    border-color: rgba(var(--section-accent), 0.2);
+    padding: 0.5rem 2rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+
+  a {
+    color: var(--section-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+
+    &:hover {
+      color: var(--section-accent);
+      opacity: 1;
+    }
+  }
+}
+
+.hero-creative-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #111111 100%);
+
+  .hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+
+    &.circle-1 {
+      width: 40vw;
+      height: 40vw;
+      background: rgba($color-accent-orange, 0.05);
+      top: -10%;
+      right: -5%;
+    }
+
+    &.circle-2 {
+      width: 30vw;
+      height: 30vw;
+      background: rgba($color-accent-purple, 0.03);
+      bottom: -5%;
+      left: -5%;
+    }
+  }
+}
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  color: var(--section-text);
+
+  span {
+    color: var(--section-accent);
+  }
+}

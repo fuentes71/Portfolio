@@ -1,0 +1,134 @@
+@use "variables" as *;
+
+.main-nav {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  z-index: 1000;
+  
+  .nav-glass {
+    @include glass;
+    background: color-mix(in srgb, var(--section-bg, #16161e), transparent 20%);
+    border-color: color-mix(in srgb, var(--section-accent, #292e42), transparent 80%);
+    padding: 0.5rem 2rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    
+    @media (max-width: 640px) {
+      padding: 0.5rem 1.25rem;
+      gap: 1rem;
+    }
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  
+  @media (max-width: 1024px) {
+    display: none;
+  }
+  
+  a {
+    color: var(--section-text, $color-text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    
+    &:hover {
+      color: var(--accent-color, $color-accent-orange);
+      opacity: 1;
+    }
+  }
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--accent-color, $color-accent-orange);
+  letter-spacing: -0.05em;
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: var(--section-text);
+  
+  @media (max-width: 1024px) {
+    display: block;
+  }
+}
+
+.floating-lang-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  
+  background: color-mix(in srgb, var(--section-bg, #16161e), transparent 20%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--section-accent, #292e42), transparent 80%);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  @include flex-center;
+  color: var(--section-text);
+  font-weight: bold;
+  font-family: $font-mono;
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &:hover {
+    background-color: var(--accent-color, $color-accent-orange);
+    border-color: var(--accent-color, $color-accent-orange);
+    color: #000;
+    transform: scale(1.1);
+  }
+}
+
+.main-footer {
+  padding: 4rem 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--section-text, #ffffff), transparent 90%);
+  text-align: center;
+  background-color: var(--section-bg, #06070a);
+  color: var(--section-text, #ffffff);
+  
+  .footer-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent-color, $color-accent-orange);
+    margin-bottom: 2rem;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    
+    a {
+      color: var(--section-text, #ffffff);
+      opacity: 0.6;
+      transition: all 0.3s;
+      &:hover {
+        color: var(--accent-color, $color-accent-orange);
+        opacity: 1;
+      }
+    }
+  }
+  
+  .footer-copy {
+    opacity: 0.5;
+    font-size: 0.875rem;
+  }
+}

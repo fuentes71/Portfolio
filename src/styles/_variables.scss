@@ -1,0 +1,57 @@
+// ==========================================================================
+// DESIGN TOKENS
+// ==========================================================================
+
+$color-orange-vibrant: #ff4d05;
+$color-accent-orange: #ff4d05;
+$color-accent-purple: #c084fc;
+$color-accent-violet: #a78bfa;
+$color-accent-blue: #7aa2f7;
+$color-accent-green: #9ece6a;
+
+$color-bg-deep: #000000;
+$color-bg-terminal: rgba(22, 22, 30, 0.95);
+$color-header-terminal: #1a1b26;
+$color-border: #292e42;
+
+$color-text-primary: #d1d5db;
+$color-text-secondary: #ff4d05;
+$color-text-muted: #565f89;
+$color-text-dim: #6b7280;
+
+$color-mac-close: #ff5f56;
+$color-mac-min: #ffbd2e;
+$color-mac-max: #27c93f;
+
+$font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
+$font-pixel: 'Press Start 2P', cursive;
+
+$shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
+
+// ==========================================================================
+// MIXINS
+// ==========================================================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin glass {
+  background: rgba(22, 22, 30, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid $color-border;
+}
+
+@mixin btn-base {
+  padding: 1rem 2rem;
+  font-weight: 700;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  font-size: 0.9rem;
+  font-family: $font-mono;
+}

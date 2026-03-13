@@ -1,0 +1,57 @@
+@use "variables" as *;
+
+.services-section {
+  scroll-margin-top: 5rem;
+  padding: 100px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  @include glass;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color, #ff4d05);
+    background-color: color-mix(in srgb, var(--accent-color, #ff4d05), transparent 95%);
+    box-shadow: 0 20px 80px -10px color-mix(in srgb, var(--accent-color, #ff4d05), transparent 80%);
+
+    .service-icon-box {
+      background-color: color-mix(in srgb, var(--accent-color, #ff4d05), transparent 90%);
+      color: var(--accent-color, #ff4d05);
+    }
+  }
+}
+
+.service-icon-box {
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 0.75rem;
+  @include flex-center;
+  color: $color-text-muted;
+  transition: all 0.3s ease;
+}
+
+.service-title {
+  color: $color-orange-vibrant;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.service-desc {
+  color: $color-text-muted;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

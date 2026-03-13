@@ -1,0 +1,134 @@
+@use "variables" as *;
+
+.experience-section {
+  scroll-margin-top: 5rem;
+  padding: 100px 0;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 4rem auto 0;
+  padding: 2rem 0;
+}
+
+.timeline-progress-line {
+  position: absolute;
+  width: 2px;
+  background-color: $color-accent-orange;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.3;
+
+  @media (max-width: 768px) {
+    left: 31px;
+    transform: none;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  &.left {
+    left: 0;
+    text-align: right;
+
+    @media (max-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  &.right {
+    left: 50%;
+
+    @media (max-width: 768px) {
+      left: 0;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: -10px;
+    background-color: #111;
+    border: 4px solid $color-accent-orange;
+    top: 3rem;
+    border-radius: 50%;
+    z-index: 10;
+
+    @media (max-width: 768px) {
+      left: 23px;
+    }
+  }
+
+  &.right::after {
+    left: -10px;
+
+    @media (max-width: 768px) {
+      left: 23px;
+    }
+  }
+}
+
+.timeline-card {
+  @include glass;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  .exp-date {
+    display: block;
+    color: #ffffff;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .exp-role {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+  }
+
+  .exp-company {
+    color: var(--accent-color, #ff4d05);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .exp-list {
+    list-style: none;
+
+    li {
+      position: relative;
+      color: $color-text-muted;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+
+      &::before {
+        content: "•";
+        color: $color-accent-orange;
+        font-weight: bold;
+        display: inline-block;
+        width: 1rem;
+        margin-left: -1rem;
+      }
+    }
+  }
+}
