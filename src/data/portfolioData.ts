@@ -17,11 +17,6 @@ export interface Course {
 }
 
 export interface UIContent {
-  hero: {
-    im: string;
-    work: string;
-    hire: string;
-  };
   about: {
     title: string;
     hello: string;
@@ -162,7 +157,6 @@ export const portfolioData: PortfolioData = {
       { name: "Desenvolvimento frontend React", institution: "Eureka & Origamid" }
     ],
     ui: {
-      hero: { im: "Eu Sou", work: "Ver Trabalho", hire: "Contrate-me" },
       about: {
         title: "Sobre Mim",
         hello: "Olá, Eu Sou",
@@ -268,7 +262,6 @@ export const portfolioData: PortfolioData = {
       { name: "React Front-end Development", institution: "Eureka & Origamid" }
     ],
     ui: {
-      hero: { im: "I Am", work: "View Work", hire: "Hire Me" },
       about: {
         title: "About Me",
         hello: "Hello, I Am",

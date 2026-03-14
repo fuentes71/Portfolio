@@ -24,7 +24,6 @@
   .nav-glass {
     @include glass;
     background: color-mix(in srgb, var(--section-bg), transparent 20%);
-    border-color: rgba(var(--section-accent), 0.2);
     padding: 0.5rem 2rem;
     border-radius: 9999px;
     display: flex;

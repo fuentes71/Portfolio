@@ -65,7 +65,6 @@ export const HeroSection: React.FC = () => {
         className="hero-content"
       >
         <h1 className="hero-title">
-          {t.im}{' '}
           <span className="hero-title-typed">
             {displayed}
             <motion.span
