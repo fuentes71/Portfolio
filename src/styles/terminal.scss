@@ -242,3 +242,22 @@
     display: none;
   }
 }
+
+.interactive-prompt-container {
+  position: relative;
+  cursor: text;
+}
+
+.mobile-tap-hint {
+  display: none;
+  font-size: 11px;
+  color: $color-text-muted;
+  margin-top: 0.5rem;
+  opacity: 0.6;
+  animation: blink 2s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
