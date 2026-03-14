@@ -137,13 +137,14 @@
   @include btn-base;
   padding: 0.75rem 1.75rem;
   font-size: 0.85rem;
-  background-color: $color-accent-orange;
-  color: white;
+  background-color: var(--accent-color, $color-accent-orange);
+  color: #000;
   font-weight: 700;
   border-radius: 0.75rem;
   
   &:hover {
-    background-color: color.adjust($color-accent-orange, $lightness: -5%);
+    background-color: var(--accent-color, $color-accent-orange);
+    filter: brightness(1.1);
     transform: scale(1.05);
   }
 }
