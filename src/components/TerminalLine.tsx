@@ -9,7 +9,7 @@ export const TerminalLine: React.FC<TerminalLineProps> = ({ content, isCommand }
   if (isCommand) {
     return (
       <div className="cmd-prompt">
-        <span className="cmd-user">User@portfolio:~$</span>
+        <span className="cmd-user">matheus@portfolio:~$</span>
         <span className="cmd-text">{content}</span>
       </div>
     );

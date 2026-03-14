@@ -39,15 +39,23 @@
   left: 1rem;
   display: flex;
   gap: 0.5rem;
-  
+
   .macos-btn {
     width: 0.75rem;
     height: 0.75rem;
     border-radius: 50%;
-    
-    &.close { background: $color-mac-close; }
-    &.min { background: $color-mac-min; }
-    &.max { background: $color-mac-max; }
+
+    &.close {
+      background: $color-mac-close;
+    }
+
+    &.min {
+      background: $color-mac-min;
+    }
+
+    &.max {
+      background: $color-mac-max;
+    }
   }
 }
 
@@ -58,7 +66,7 @@
   color: #a9b1d6;
   font-size: 13px;
   font-weight: 500;
-  
+
   .folder-icon {
     color: $color-accent-blue;
   }
@@ -92,7 +100,7 @@
   // Firefox compatibility
   scrollbar-width: thin;
   scrollbar-color: rgba($color-accent-purple, 0.2) transparent;
-  
+
   @media (max-width: 640px) {
     padding: 1rem;
   }
@@ -105,7 +113,7 @@
   text-align: center;
   margin-bottom: 2rem;
   text-transform: uppercase;
-  
+
   @media (max-width: 640px) {
     font-size: 24px;
   }
@@ -118,18 +126,18 @@
   margin-bottom: 2.5rem;
   font-size: 0.875rem;
   line-height: 1.8;
-  
+
   .contact-row {
     display: flex;
     gap: 1rem;
     width: 250px;
-    
+
     @media (max-width: 640px) {
       width: auto;
       justify-content: center;
     }
   }
-  
+
   .contact-label {
     color: $color-accent-purple;
     font-weight: bold;
@@ -141,12 +149,14 @@
       margin-right: 0.5rem;
     }
   }
-  
+
   .contact-value {
     color: $color-accent-violet;
     width: 100%;
+
     a {
       transition: opacity 0.3s;
+
       &:hover {
         text-decoration: underline;
         opacity: 0.8;
@@ -159,7 +169,7 @@
   width: 100%;
   padding: 0 10%;
   margin: 1.5rem 0;
-  
+
   .separator-line {
     display: block;
     height: 2px;
@@ -176,7 +186,7 @@
 
 .terminal-line {
   margin-bottom: 1rem;
-  
+
   &.boot-text {
     color: $color-accent-blue;
     font-size: 13px;
@@ -198,13 +208,13 @@
   align-items: center;
   flex-wrap: wrap;
   text-align: left;
-  
+
   .cmd-user {
     color: $color-accent-purple;
     font-weight: bold;
     margin-right: 0.5rem;
   }
-  
+
   .cmd-question {
     color: $color-accent-purple;
     margin-right: 0.75rem;
@@ -219,15 +229,22 @@
   background-color: $color-text-primary;
   animation: blink 1s step-end infinite;
   margin-left: 0.25rem;
-  
+
   &.gray {
     background-color: $color-text-dim;
   }
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .footer-hotkeys {
@@ -237,7 +254,7 @@
   font-size: 12px;
   display: flex;
   gap: 1.5rem;
-  
+
   @media (max-width: 640px) {
     display: none;
   }
@@ -261,3 +278,56 @@
   }
 }
 
+.easter-egg-window {
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 650px;
+  max-height: 450px;
+  background: rgba(26, 27, 38, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba($color-accent-green, 0.6);
+  border-radius: 0.75rem;
+  box-shadow: 0 0 60px rgba(158, 206, 106, 0.25),
+    0 0 100px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+
+  .terminal-content {
+    padding: 1.5rem 2rem;
+    background: transparent;
+    overflow-y: auto;
+  }
+}
+
+.easter-egg-content {
+  color: #9ece6a;
+  font-family: monospace;
+  position: relative;
+}
+
+.auto-close-hint {
+  margin-top: 1.5rem;
+  font-size: 11px;
+  color: $color-text-muted;
+  opacity: 0.7;
+  text-align: right;
+  font-style: italic;
+}
+
+// Obsolete inline easter egg styles removed. EasterEggWindow.tsx now handles the overlay.
+
+@keyframes eggGlow {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(1.3) drop-shadow(0 0 6px rgba(158, 206, 106, 0.4));
+  }
+}
