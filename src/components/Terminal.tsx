@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Folder } from 'lucide-react';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { TerminalLine } from './TerminalLine';
@@ -42,6 +42,7 @@ export const Terminal: React.FC<TerminalProps> = ({ onComplete }) => {
   const [loadingProgress, setLoadingProgress] = useState(0);
 
   const bottomRef = useRef<HTMLDivElement>(null);
+  const hiddenInputRef = useRef<HTMLInputElement>(null);
 
   // Sync lines when language changes
   useEffect(() => {
@@ -141,34 +142,50 @@ export const Terminal: React.FC<TerminalProps> = ({ onComplete }) => {
     }
   }, [typedCommand, currentCmdIndex, isInteractive, isLoading, lines.length, lang, isBooting, t.welcome]);
 
-  // Keyboard Event Listener for interactive prompt
+  // Focus hidden input on mobile when interactive phase starts
+  useEffect(() => {
+    if (isInteractive && !isLoading) {
+      // Small delay to ensure element is rendered
+      setTimeout(() => hiddenInputRef.current?.focus(), 100);
+    }
+  }, [isInteractive, isLoading]);
+
+  const handleInteractiveSubmit = useCallback((input: string) => {
+    if (input.toLowerCase() === 'y') {
+      setIsInteractive(false);
+      setIsLoading(true);
+      setUserInput('');
+      setLines(prev => [
+        ...prev,
+        { id: 'prompt-response', content: t.question, isCommand: false },
+        { id: 'prompt-inputted', content: input, isCommand: true },
+        { id: 'loading-start', content: t.loading }
+      ]);
+    } else if (input.toLowerCase() === 'n' || input === '') {
+      setIsInteractive(false);
+      setUserInput('');
+      setLines(prev => [
+        ...prev,
+        { id: 'prompt-response', content: t.question, isCommand: false },
+        { id: 'prompt-inputted', content: input || 'N', isCommand: true },
+        { id: 'abort', content: t.abort }
+      ]);
+      setTimeout(() => {
+        setIsInteractive(true);
+      }, 1000);
+    }
+  }, [t.question, t.loading, t.abort]);
+
+  // Keyboard Event Listener for interactive prompt (desktop)
   useEffect(() => {
     if (!isInteractive || isLoading) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      // If the hidden input is focused, let its onChange handle it
+      if (document.activeElement === hiddenInputRef.current) return;
+
       if (e.key === 'Enter') {
-        if (userInput.toLowerCase() === 'y') {
-          setIsInteractive(false);
-          setIsLoading(true);
-          setLines(prev => [
-            ...prev,
-            { id: 'prompt-response', content: t.question, isCommand: false },
-            { id: 'prompt-inputted', content: userInput, isCommand: true },
-            { id: 'loading-start', content: t.loading }
-          ]);
-        } else if (userInput.toLowerCase() === 'n' || userInput === '') {
-          setIsInteractive(false);
-          setLines(prev => [
-            ...prev,
-            { id: 'prompt-response', content: t.question, isCommand: false },
-            { id: 'prompt-inputted', content: userInput || 'N', isCommand: true },
-            { id: 'abort', content: t.abort }
-          ]);
-          setTimeout(() => {
-            setIsInteractive(true);
-            setUserInput('');
-          }, 1000);
-        }
+        handleInteractiveSubmit(userInput);
       } else if (e.key === 'Backspace') {
         setUserInput(prev => prev.slice(0, -1));
       } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
@@ -178,7 +195,7 @@ export const Terminal: React.FC<TerminalProps> = ({ onComplete }) => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isInteractive, isLoading, userInput, t.question, t.loading, t.abort]);
+  }, [isInteractive, isLoading, userInput, handleInteractiveSubmit]);
 
   // Loading animation logic
   useEffect(() => {
@@ -320,12 +337,46 @@ export const Terminal: React.FC<TerminalProps> = ({ onComplete }) => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="interactive-prompt-container"
+                onClick={() => hiddenInputRef.current?.focus()}
               >
+                {/* Hidden native input for mobile keyboard */}
+                <input
+                  ref={hiddenInputRef}
+                  type="text"
+                  inputMode="text"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  value={userInput}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    // Only allow single char (y or n)
+                    const last = val.slice(-1);
+                    setUserInput(last);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      handleInteractiveSubmit(userInput);
+                    }
+                  }}
+                  style={{
+                    position: 'absolute',
+                    opacity: 0,
+                    width: '1px',
+                    height: '1px',
+                    pointerEvents: 'none',
+                  }}
+                />
                 <div className="cmd-prompt">
                   <span className="cmd-user">matheus@portfolio:~$</span>
                   <span className="cmd-question">{t.question}</span>
                   <span className="cmd-text">{userInput}</span>
                   <span className="cursor-blink gray"></span>
+                </div>
+                <div className="mobile-tap-hint">
+                  📱 {lang === 'pt' ? 'Toque aqui para digitar' : 'Tap here to type'}
                 </div>
               </motion.div>
             )}

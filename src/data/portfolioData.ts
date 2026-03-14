@@ -109,7 +109,7 @@ export const portfolioData: PortfolioData = {
   name: "Matheus Fuentes Pereira",
   contact: {
     phone: "+55 53 99159-6496",
-    email: "matheus.fu.p@gmail.com"
+    email: "matheus.fu.p@hotmail.com"
   },
   pt: {
     titles: ["Engenheiro Full Stack", "Engenheiro de Software"],

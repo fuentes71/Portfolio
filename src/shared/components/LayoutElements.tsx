@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
 
       <div className="social-links">
         <a href="https://github.com/fuentes71" target="_blank" rel="noreferrer"><Github size={24} /></a>
-        <a href="https://linkedin.com/in/matheusfuentess/" target="_blank" rel="noreferrer"><Linkedin size={24} /></a>
+        <a href="https://linkedin.com/in/matheus-fuentes-full-stack-nodejs-angular/" target="_blank" rel="noreferrer"><Linkedin size={24} /></a>
         <a href={`mailto:${portfolioData.contact.email}`}><Mail size={24} /></a>
       </div>
 
