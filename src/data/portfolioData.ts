@@ -52,6 +52,7 @@ export interface UIContent {
       desc: string;
       image: string;
       size: 'small' | 'large';
+      type: 'real' | 'study';
     }[];
   };
   experience: {
@@ -179,33 +180,33 @@ export const portfolioData: PortfolioData = {
           { title: "Cloud & DevOps", desc: "Deploy automatizado e gerenciamento de nuvem." }
         ]
       },
-      projects: {
+    projects: {
         title: "Projetos em Destaque",
         btn: "Ver Detalhes",
         items: [
           {
             title: "Sentinel Platform", tech: ["Node.js", "NestJS"], desc: "Monitoramento IoT em tempo real.",
-            image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc4b?fit=crop&w=800&q=80", size: "large"
+            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&q=80", size: "large", type: "real"
           },
           {
             title: "Cloud Streamer", tech: ["Kafka", "Docker"], desc: "Pipeline de streaming de dados.",
-            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&q=80", size: "small"
+            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&q=80", size: "small", type: "real"
           },
           {
             title: "Neural Mesh", tech: ["Python", "TensorFlow"], desc: "Rede neural para análise preditiva.",
-            image: "file:///C:/Users/mathe/.gemini/antigravity/brain/8340f69d-e872-4a49-9882-d71732434417/neural_mesh_project_1773422496272.png", size: "small"
+            image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?fit=crop&w=800&q=80", size: "small", type: "study"
           },
           {
             title: "Cyber Shield", tech: ["Go", "Kubernetes"], desc: "Sistema de defesa contra invasões.",
-            image: "file:///C:/Users/mathe/.gemini/antigravity/brain/8340f69d-e872-4a49-9882-d71732434417/cyber_shield_project_1773422511861.png", size: "large"
+            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=800&q=80", size: "large", type: "real"
           },
           {
             title: "Data Vortex", tech: ["Spark", "Scala"], desc: "Processamento de Big Data em escala.",
-            image: "file:///C:/Users/mathe/.gemini/antigravity/brain/8340f69d-e872-4a49-9882-d71732434417/data_vortex_project_1773422528916.png", size: "small"
+            image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?fit=crop&w=800&q=80", size: "small", type: "study"
           },
           {
             title: "Quantum Ledger", tech: ["Rust", "Solidity"], desc: "Protocolo de finanças descentralizadas.",
-            image: "file:///C:/Users/mathe/.gemini/antigravity/brain/8340f69d-e872-4a49-9882-d71732434417/quantum_ledger_project_1773422545889.png", size: "small"
+            image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?fit=crop&w=800&q=80", size: "small", type: "study"
           }
         ]
       },
@@ -291,27 +292,27 @@ export const portfolioData: PortfolioData = {
         items: [
           {
             title: "Sentinel Platform", tech: ["Node.js", "NestJS"], desc: "Real-time IoT monitoring.",
-            image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc4b?fit=crop&w=800&q=80", size: "large"
+            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&q=80", size: "large", type: "real"
           },
           {
             title: "Cloud Streamer", tech: ["Kafka", "Docker"], desc: "Data streaming pipeline.",
-            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&q=80", size: "small"
+            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&q=80", size: "small", type: "real"
           },
           {
             title: "Neural Mesh", tech: ["Python", "TensorFlow"], desc: "Neural network for predictive analysis.",
-            image: "file:///C:/Users/mathe/.gemini/antigravity/brain/8340f69d-e872-4a49-9882-d71732434417/neural_mesh_project_1773422496272.png", size: "small"
+            image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?fit=crop&w=800&q=80", size: "small", type: "study"
           },
           {
             title: "Cyber Shield", tech: ["Go", "Kubernetes"], desc: "Intrusion defense system.",
-            image: "file:///C:/Users/mathe/.gemini/antigravity/brain/8340f69d-e872-4a49-9882-d71732434417/cyber_shield_project_1773422511861.png", size: "large"
+            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=800&q=80", size: "large", type: "real"
           },
           {
             title: "Data Vortex", tech: ["Spark", "Scala"], desc: "Scalable Big Data processing.",
-            image: "file:///C:/Users/mathe/.gemini/antigravity/brain/8340f69d-e872-4a49-9882-d71732434417/data_vortex_project_1773422528916.png", size: "small"
+            image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?fit=crop&w=800&q=80", size: "small", type: "study"
           },
           {
             title: "Quantum Ledger", tech: ["Rust", "Solidity"], desc: "Decentralized finance protocol.",
-            image: "file:///C:/Users/mathe/.gemini/antigravity/brain/8340f69d-e872-4a49-9882-d71732434417/quantum_ledger_project_1773422545889.png", size: "small"
+            image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?fit=crop&w=800&q=80", size: "small", type: "study"
           }
         ]
       },

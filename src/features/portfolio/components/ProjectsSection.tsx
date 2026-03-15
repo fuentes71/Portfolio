@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { usePortfolioStore } from '../../../core/store/usePortfolioStore';
 import { portfolioData } from '../../../data/portfolioData';
 import { SectionHeader } from '../../../shared/components/SectionHeader';
+import { ProjectCarousel3D } from './ProjectCarousel3D';
 
 export const ProjectsSection: React.FC = () => {
   const { lang } = usePortfolioStore();
@@ -17,39 +18,10 @@ export const ProjectsSection: React.FC = () => {
       <div className="container-lg">
         <SectionHeader title={t.title} />
         
-        <div className="projects-grid">
-          {t.items.map((project, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="project-card"
-              onClick={() => setSelectedIdx(i)}
-            >
-              <img src={project.image} alt={project.title} />
-
-              <div className="project-overlay">
-                <div className="project-tags">
-                  {project.tech.map((tech, j) => (
-                    <span key={j} className="project-tag">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="project-name">{project.title}</h3>
-                <p className="project-description">{project.desc}</p>
-                <div className="project-actions">
-                  <button className="project-btn">{t.btn}</button>
-                  <div className="project-links">
-                    <ExternalLink size={18} />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <ProjectCarousel3D 
+          projects={t.items} 
+          onProjectClick={(idx) => setSelectedIdx(idx)} 
+        />
       </div>
 
       <AnimatePresence>
