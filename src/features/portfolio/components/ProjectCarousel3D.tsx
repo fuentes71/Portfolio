@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { ScrollControls, Environment } from '@react-three/drei';
 import { ProjectFrame3D } from './ProjectFrame3D';
-import { Rig, Banner } from './CarouselComponents';
+import { Rig } from './CarouselComponents';
 
 interface ProjectCarousel3DProps {
   projects: any[];
@@ -27,7 +27,6 @@ const CarouselItems = React.memo(({ projects, onProjectClick }: { projects: any[
           onClick={() => onProjectClick(i)}
         />
       ))}
-      <Banner position={[0, -5, 0]} />
     </Rig>
   );
 });

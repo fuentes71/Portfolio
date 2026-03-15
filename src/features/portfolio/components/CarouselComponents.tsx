@@ -35,25 +35,4 @@ export const Rig = ({ children }: { children: React.ReactNode }) => {
   return <group ref={ref}>{children}</group>;
 };
 
-export const Banner = (props: any) => {
-  const ref = useRef<any>(null);
-  const scroll = useScroll();
 
-  useFrame((_state, _delta) => {
-    if (!ref.current) return;
-    // Rotate banner
-    ref.current.rotation.y = scroll.offset * (Math.PI * 2);
-
-    // Animate material if it's SineMaterial
-    if (ref.current.material.time) {
-      ref.current.material.time.value += Math.abs(scroll.delta) * 4;
-    }
-  });
-
-  return (
-    <mesh ref={ref} {...props}>
-      <cylinderGeometry args={[20, 20, 1, 128, 16, true]} />
-      <meshSineMaterial side={THREE.DoubleSide} transparent opacity={0.5} color="#ff4d05" />
-    </mesh>
-  );
-};
