@@ -33,7 +33,7 @@ export const AboutSection: React.FC = () => {
             <SectionHeader title={t.title} align="left" />
 
             <h3>
-              {t.hello} <span className="text-primary">Matheus Fuentes</span>
+              {t.hello} <span className="accent-text">Matheus Fuentes</span>
             </h3>
 
             <p>

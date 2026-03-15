@@ -93,30 +93,15 @@
 .section-header-container {
   margin-bottom: 4rem;
 
-  &.text-center {
-    text-align: center;
-  }
-
-  &.text-left {
-    text-align: left;
+  .accent-text {
+    color: var(--accent-color, #ff4d05);
   }
 
   .section-head {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     font-size: 2.5rem;
     font-weight: 900;
     color: #ffffff;
     margin-bottom: 0.5rem;
-
-    &.justify-center {
-      justify-content: center;
-    }
-
-    &.justify-start {
-      justify-content: flex-start;
-    }
   }
 
   .section-subtitle {
@@ -125,10 +110,7 @@
     max-width: 600px;
     margin-top: 0.5rem;
 
-    &.mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
+
   }
 
   .section-line {
@@ -137,9 +119,5 @@
     background-color: $color-accent-orange;
     margin-top: 1.5rem;
 
-    &.mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
   }
 }

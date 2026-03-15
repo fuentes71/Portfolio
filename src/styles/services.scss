@@ -23,13 +23,13 @@
 
   &:hover {
     transform: translateY(-10px);
-    border-color: var(--accent-color, #ff4d05);
-    background-color: color-mix(in srgb, var(--accent-color, #ff4d05), transparent 95%);
-    box-shadow: 0 20px 80px -10px color-mix(in srgb, var(--accent-color, #ff4d05), transparent 80%);
+    border-color: $color-orange-vibrant;
+    background-color: color-mix(in srgb, var(--accent-color, $color-orange-vibrant), transparent 95%);
+    box-shadow: 0 20px 80px -10px color-mix(in srgb, var(--accent-color, $color-orange-vibrant), transparent 80%);
 
     .service-icon-box {
-      background-color: color-mix(in srgb, var(--accent-color, #ff4d05), transparent 90%);
-      color: var(--accent-color, #ff4d05);
+      background-color: color-mix(in srgb, var(--accent-color, $color-orange-vibrant), transparent 90%);
+      color: var(--accent-color, $color-orange-vibrant);
     }
   }
 }

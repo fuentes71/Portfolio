@@ -6,7 +6,7 @@ function App() {
   const { isTerminalComplete, setTerminalComplete } = usePortfolioStore();
 
   return (
-    <div className="w-full h-full overflow-y-auto">
+    <div className="app-container">
       {!isTerminalComplete ? (
         <Terminal onComplete={() => setTerminalComplete(true)} />
       ) : (

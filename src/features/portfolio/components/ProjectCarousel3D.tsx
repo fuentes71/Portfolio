@@ -60,19 +60,6 @@ export const ProjectCarousel3D: React.FC<ProjectCarousel3DProps> = ({ projects, 
         <ambientLight intensity={0.5} />
         <pointLight position={[0, 0, 50]} intensity={15} />
       </Canvas>
-      <div className="carousel-3d-hint" style={{
-        position: 'absolute',
-        top: '2rem',
-        left: '2rem',
-        pointerEvents: 'none',
-        zIndex: 10,
-        opacity: 0.5,
-        color: 'white',
-        fontSize: '0.8rem',
-        fontFamily: 'monospace'
-      }}>
-        <p>scroll left/right ...</p>
-      </div>
     </div>
   );
 };

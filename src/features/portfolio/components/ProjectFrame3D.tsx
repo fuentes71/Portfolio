@@ -49,7 +49,7 @@ export const ProjectFrame3D: React.FC<ProjectFrame3DProps> = ({
         url={url}
         transparent
         side={THREE.DoubleSide}
-        scale={[5, 5]}
+        scale={[8, 8]}
         radius={0.5}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
@@ -58,7 +58,7 @@ export const ProjectFrame3D: React.FC<ProjectFrame3DProps> = ({
           onClick();
         }}
       >
-        <bentPlaneGeometry args={[radius, 1, 1, 20, 50]} />
+        <bentPlaneGeometry args={[radius / 8, 1.2, 1.2, 32, 32]} />
       </Image>
     </group>
   );

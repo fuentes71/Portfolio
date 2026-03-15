@@ -28,20 +28,6 @@
   }
 }
 
-.carousel-3d-hint {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  pointer-events: none;
-}
-
-// Old card styles removed for 3D carousel
-
 .project-overlay {
   position: absolute;
   inset: 0;
