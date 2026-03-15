@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { Image, useCursor } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { easing } from 'maath';
@@ -32,9 +33,8 @@ export const ProjectFrame3D: React.FC<ProjectFrame3DProps> = ({
   useFrame((_state, delta) => {
     if (!imageRef.current) return;
 
-    easing.damp3(imageRef.current.scale, hovered ? 1 : 0.8, 0.1, delta);
-    // Enhanced rounded corners: hovered=0.4, idle=0.2
-    easing.damp(imageRef.current.material, 'radius', hovered ? 0.4 : 0.2, 0.2, delta);
+    easing.damp3(imageRef.current.scale, hovered ? [5, 5, 1] : [3, 3, 0.5], 0.1, delta);
+    easing.damp(imageRef.current.material, 'radius', 0.5, 0.2, delta);
     easing.damp(imageRef.current.material, 'zoom', hovered ? 1 : 1.2, 0.2, delta);
   });
 
@@ -48,7 +48,9 @@ export const ProjectFrame3D: React.FC<ProjectFrame3DProps> = ({
         ref={imageRef}
         url={url}
         transparent
-        scale={[12, 12]}
+        side={THREE.DoubleSide}
+        scale={[5, 5]}
+        radius={0.5}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
         onClick={(e) => {
@@ -56,7 +58,7 @@ export const ProjectFrame3D: React.FC<ProjectFrame3DProps> = ({
           onClick();
         }}
       >
-        <bentPlaneGeometry args={[radius, 12, 12, 20, 50]} />
+        <bentPlaneGeometry args={[radius, 1, 1, 20, 50]} />
       </Image>
     </group>
   );

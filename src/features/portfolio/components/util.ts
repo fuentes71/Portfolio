@@ -28,9 +28,8 @@ export class MeshSineMaterial extends THREE.MeshBasicMaterial {
       shader.vertexShader = shader.vertexShader.replace(
         '#include <begin_vertex>',
         `
-        vec3 transformed = vec3(position);
-        transformed.x += sin(transformed.y * 10.0 + time) * 0.1;
         #include <begin_vertex>
+        transformed.x += sin(transformed.y * 10.0 + time) * 0.1;
         `
       )
       this.userData.shader = shader

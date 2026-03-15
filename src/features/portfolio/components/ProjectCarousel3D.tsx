@@ -11,7 +11,7 @@ interface ProjectCarousel3DProps {
 
 const CarouselItems = React.memo(({ projects, onProjectClick }: { projects: any[], onProjectClick: (idx: number) => void }) => {
   // Dynamic radius based on project count to fill the view proportionally
-  const radius = Math.max(projects.length * 2.2, 18);
+  const radius = Math.max(projects.length * 1.2, 1);
   return (
     <Rig>
       {projects.map((project, i) => (
@@ -38,14 +38,14 @@ export const ProjectCarousel3D: React.FC<ProjectCarousel3DProps> = ({ projects, 
       <Canvas
         shadows
         dpr={[1, 2]}
-        camera={{ position: [0, 0, 10], fov: 15 }}
+        camera={{ position: [0, 0, 40], fov: 20 }}
         gl={{
           alpha: true,
           antialias: true,
           powerPreference: "high-performance"
         }}
       >
-        <fog attach="fog" args={["#06070a", 8.5, 12]} />
+        <fog attach="fog" args={["#06070a", 50, 150]} />
         <Suspense fallback={null}>
           <ScrollControls
             infinite

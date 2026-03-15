@@ -15,11 +15,17 @@ export const Rig = ({ children }: { children: React.ReactNode }) => {
     // scroll.offset is 0 to 1
     ref.current.rotation.y = -scroll.offset * (Math.PI * 2);
 
+    const t = state.clock.getElapsedTime();
+    // Subtle organic sway (oscillation)
+    ref.current.position.y = Math.sin(t / 2) * 0.2;
+    ref.current.rotation.x = Math.cos(t / 4) * 0.06;
+    ref.current.rotation.z = Math.sin(t / 4) * 0.06;
+
     // Smooth camera movement towards pointer
     state.events.update?.(); // Raycasts every frame for better responsiveness
     easing.damp3(
       state.camera.position,
-      [-state.pointer.x * 2, 1, 100], // Restricted Y to 1 (horizontal only)
+      [-state.pointer.x * 2, 1, 40], // Brought camera closer
       0.3,
       delta
     );
