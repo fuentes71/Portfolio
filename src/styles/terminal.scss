@@ -278,14 +278,19 @@
   }
 }
 
-.easter-egg-window {
+.easter-egg-position-wrapper {
   position: fixed;
-  top: 20%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 9999;
   width: 90%;
   max-width: 650px;
+  pointer-events: none;
+}
+
+.easter-egg-window {
+  width: 100%;
   max-height: 450px;
   background: rgba(26, 27, 38, 0.98);
   backdrop-filter: blur(20px);
@@ -307,8 +312,11 @@
 
 .easter-egg-content {
   color: #9ece6a;
-  font-family: monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
   position: relative;
+  white-space: pre;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .auto-close-hint {
