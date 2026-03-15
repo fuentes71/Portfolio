@@ -215,7 +215,8 @@ export const portfolioData: PortfolioData = {
         { label: "Início", href: "#home" },
         { label: "Sobre", href: "#about" },
         { label: "Serviços", href: "#services" },
-        { label: "Projetos", href: "#projects" }
+        { label: "Projetos", href: "#projects" },
+        { label: "Experiência", href: "#experience" }
       ],
       terminal: {
         boot: [
@@ -257,6 +258,19 @@ export const portfolioData: PortfolioData = {
         description: [
           "Landing page development for parcel tracking.",
           "Implementation with React.js and Tailwind CSS."
+        ]
+      },
+      {
+        role: "Full Stack Developer",
+        company: "Growdev",
+        period: "Feb 2024 — Mar 2025",
+        description: [
+          "Development of a MES system for real-time production monitoring.",
+          "Backend with Node.js, TypeScript, and NestJS using microservices architecture.",
+          "Implementation of Test Driven Development (TDD) with over 200 automated tests.",
+          "Development of industrial interfaces using Angular.",
+          "Environment setup with Docker and deployment flow optimization.",
+          "REST API development and system integration."
         ]
       }
     ],
@@ -321,7 +335,8 @@ export const portfolioData: PortfolioData = {
         { label: "Home", href: "#home" },
         { label: "About", href: "#about" },
         { label: "Services", href: "#services" },
-        { label: "Projects", href: "#projects" }
+        { label: "Projects", href: "#projects" },
+        { label: "Experience", href: "#experience" }
       ],
       terminal: {
         boot: [
