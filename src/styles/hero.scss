@@ -101,12 +101,21 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-size: clamp(1.8rem, 8vw, 6rem);
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 2rem;
   letter-spacing: -0.02em;
-  color: var(--section-text);
+  color: var(--section-text, #ffffff);
+  width: 100%;
+  max-width: 900px;
+  word-break: break-word;
+  padding: 0 0.5rem;
+
+  @media (max-width: 480px) {
+    font-size: clamp(1.5rem, 12vw, 2.2rem);
+    line-height: 1.2;
+  }
 
   span {
     color: var(--section-accent);
@@ -115,8 +124,7 @@
 
 .hero-title-typed {
   color: var(--section-accent);
-  display: inline-block;
-  white-space: nowrap;
+  display: inline;
 }
 
 .typewriter-cursor {
