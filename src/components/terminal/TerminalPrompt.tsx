@@ -25,6 +25,7 @@ export const TerminalPrompt: React.FC<TerminalPromptProps> = ({
       animate={{ opacity: 1, y: 0 }}
       className="interactive-prompt-container"
       onClick={() => hiddenInputRef.current?.focus()}
+      onTouchStart={() => hiddenInputRef.current?.focus()}
     >
       <input
         ref={hiddenInputRef}
@@ -45,9 +46,9 @@ export const TerminalPrompt: React.FC<TerminalPromptProps> = ({
         style={{
           position: 'absolute',
           opacity: 0,
+          left: '-9999px',
           width: '1px',
           height: '1px',
-          pointerEvents: 'none',
         }}
       />
       <div className="cmd-prompt">

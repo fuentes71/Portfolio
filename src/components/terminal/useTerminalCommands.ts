@@ -49,11 +49,11 @@ export const useTerminalCommands = ({
       }, i * 150);
     });
 
-    // Auto-close after 5 seconds
+    // Auto-close after 10 seconds
     timerRef.current = setTimeout(() => {
       setEasterEggActive(false);
       setEasterEggLines([]);
-    }, 5000);
+    }, 10000);
   }, [lang, setUserInput]);
 
   // Cleanup timer on unmount

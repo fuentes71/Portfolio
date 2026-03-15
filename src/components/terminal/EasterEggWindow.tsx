@@ -43,7 +43,7 @@ export const EasterEggWindow: React.FC<EasterEggWindowProps> = ({ lines, lang })
             ))}
           </pre>
           <div className="auto-close-hint">
-            {lang === 'pt' ? 'Fechando em 5 segundos...' : 'Closing in 5 seconds...'}
+            {lang === 'pt' ? 'Fechando em 10 segundos...' : 'Closing in 10 seconds...'}
           </div>
         </div>
       </motion.div>
