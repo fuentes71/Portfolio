@@ -197,26 +197,73 @@
       font-size: 1.1rem;
       line-height: 1.6;
       margin-bottom: 2rem;
+      max-height: 180px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+        display: block !important;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(113, 226, 113, 0.3);
+        border-radius: 2px;
+      }
     }
   }
 
   .modal-footer {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 
-  .modal-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: rgba(255, 255, 255, 0.6);
+  .github-btn {
+    @include btn-base;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #c4b5fd;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 0.75rem;
     text-decoration: none;
-    font-size: 0.9rem;
     transition: all 0.3s ease;
 
     &:hover {
+      background: rgba(139, 92, 246, 0.25);
+      border-color: #8b5cf6;
+      transform: translateY(-2px);
+      color: white;
+    }
+  }
+
+  .live-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    color: #93c5fd;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(59, 130, 246, 0.25);
+      border-color: #3b82f6;
+      transform: translateY(-2px);
       color: white;
     }
   }

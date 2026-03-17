@@ -60,10 +60,22 @@ export const ProjectsSection: React.FC = () => {
                   <p className="modal-desc">{selectedProject.desc}</p>
                   
                   <div className="modal-footer">
-                    <button className="project-btn">{t.btn}</button>
-                    <a href="#" className="modal-link">
+                    <a 
+                      href={selectedProject.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="project-btn github-btn"
+                    >
+                      {t.githubLabel}
+                    </a>
+                    <a 
+                      href={selectedProject.live} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="modal-link live-link"
+                    >
                       <ExternalLink size={20} />
-                      <span>Live Preview</span>
+                      <span>{t.liveLabel}</span>
                     </a>
                   </div>
                 </div>

@@ -46,6 +46,8 @@ export interface UIContent {
   projects: {
     title: string;
     btn: string;
+    githubLabel: string;
+    liveLabel: string;
     items: {
       title: string;
       tech: string[];
@@ -53,6 +55,8 @@ export interface UIContent {
       image: string;
       size: 'small' | 'large';
       type: 'real' | 'study';
+      github: string;
+      live: string;
     }[];
   };
   experience: {
@@ -180,33 +184,41 @@ export const portfolioData: PortfolioData = {
           { title: "Cloud & DevOps", desc: "Deploy automatizado e gerenciamento de nuvem." }
         ]
       },
-    projects: {
+      projects: {
         title: "Projetos em Destaque",
         btn: "Ver Detalhes",
+        githubLabel: "GitHub",
+        liveLabel: "Demo",
         items: [
           {
             title: "Sentinel Platform", tech: ["Node.js", "NestJS"], desc: "Monitoramento IoT em tempo real.",
-            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&q=80", size: "large", type: "real"
+            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&q=80", size: "large", type: "real",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Cloud Streamer", tech: ["Kafka", "Docker"], desc: "Pipeline de streaming de dados.",
-            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&q=80", size: "small", type: "real"
+            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&q=80", size: "small", type: "real",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Neural Mesh", tech: ["Python", "TensorFlow"], desc: "Rede neural para análise preditiva.",
-            image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?fit=crop&w=800&q=80", size: "small", type: "study"
+            image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?fit=crop&w=800&q=80", size: "small", type: "study",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Cyber Shield", tech: ["Go", "Kubernetes"], desc: "Sistema de defesa contra invasões.",
-            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=800&q=80", size: "large", type: "real"
+            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=800&q=80", size: "large", type: "real",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Data Vortex", tech: ["Spark", "Scala"], desc: "Processamento de Big Data em escala.",
-            image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?fit=crop&w=800&q=80", size: "small", type: "study"
+            image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?fit=crop&w=800&q=80", size: "small", type: "study",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Quantum Ledger", tech: ["Rust", "Solidity"], desc: "Protocolo de finanças descentralizadas.",
-            image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?fit=crop&w=800&q=80", size: "small", type: "study"
+            image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?fit=crop&w=800&q=80", size: "small", type: "study",
+            github: "https://github.com", live: "https://example.com"
           }
         ]
       },
@@ -303,30 +315,38 @@ export const portfolioData: PortfolioData = {
       projects: {
         title: "Featured Projects",
         btn: "View Details",
+        githubLabel: "GitHub",
+        liveLabel: "Live Preview",
         items: [
           {
             title: "Sentinel Platform", tech: ["Node.js", "NestJS"], desc: "Real-time IoT monitoring.",
-            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&q=80", size: "large", type: "real"
+            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=800&q=80", size: "large", type: "real",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Cloud Streamer", tech: ["Kafka", "Docker"], desc: "Data streaming pipeline.",
-            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&q=80", size: "small", type: "real"
+            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?fit=crop&w=800&q=80", size: "small", type: "real",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Neural Mesh", tech: ["Python", "TensorFlow"], desc: "Neural network for predictive analysis.",
-            image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?fit=crop&w=800&q=80", size: "small", type: "study"
+            image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?fit=crop&w=800&q=80", size: "small", type: "study",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Cyber Shield", tech: ["Go", "Kubernetes"], desc: "Intrusion defense system.",
-            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=800&q=80", size: "large", type: "real"
+            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?fit=crop&w=800&q=80", size: "large", type: "real",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Data Vortex", tech: ["Spark", "Scala"], desc: "Scalable Big Data processing.",
-            image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?fit=crop&w=800&q=80", size: "small", type: "study"
+            image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?fit=crop&w=800&q=80", size: "small", type: "study",
+            github: "https://github.com", live: "https://example.com"
           },
           {
             title: "Quantum Ledger", tech: ["Rust", "Solidity"], desc: "Decentralized finance protocol.",
-            image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?fit=crop&w=800&q=80", size: "small", type: "study"
+            image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?fit=crop&w=800&q=80", size: "small", type: "study",
+            github: "https://github.com", live: "https://example.com"
           }
         ]
       },
