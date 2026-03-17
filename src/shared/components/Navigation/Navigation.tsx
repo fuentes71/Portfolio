@@ -36,40 +36,50 @@ export const Navigation: React.FC = () => {
         </div>
 
         <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Open Menu">
-          <Menu size={24} />
+          <Menu size={22} />
         </button>
       </div>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            className="mobile-menu-overlay"
-            initial={{ x: '-100%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '-100%', opacity: 0 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-          >
-            <div className="overlay-header">
-              <button className="close-menu-btn" onClick={closeMenu} aria-label="Close Menu">
-                <X size={32} />
-              </button>
-            </div>
-            
-            <div className="mobile-nav-list">
-              {t.map((item, index) => (
-                <motion.a
-                  key={index}
-                  href={item.href}
-                  onClick={closeMenu}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 + index * 0.05 }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+          <>
+            <motion.div
+              className="mobile-menu-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMenu}
+            />
+            <motion.div
+              className="mobile-menu-overlay"
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="overlay-header">
+                <button className="close-menu-btn" onClick={closeMenu} aria-label="Close Menu">
+                  <X size={28} />
+                </button>
+              </div>
+              
+              <div className="mobile-nav-list">
+                {t.map((item, index) => (
+                  <motion.a
+                    key={index}
+                    href={item.href}
+                    onClick={closeMenu}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.1 + index * 0.08 }}
+                  >
+                    {item.label}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
