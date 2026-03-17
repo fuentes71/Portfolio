@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "./styles/variables" as *;
 @use "./styles/terminal";
-@use "./styles/navigation";
+@use "./styles/layout" as layout;
 @use "./styles/hero";
 @use "./styles/about";
 @use "./styles/services";

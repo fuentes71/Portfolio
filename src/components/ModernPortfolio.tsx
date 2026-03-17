@@ -5,7 +5,8 @@ import { AboutSection } from '../features/portfolio/components/AboutSection';
 import { ServicesSection } from '../features/portfolio/components/ServicesSection';
 import { ProjectsSection } from '../features/portfolio/components/ProjectsSection';
 import { ExperienceSection } from '../features/portfolio/components/ExperienceSection';
-import { Navigation, Footer, FloatingLangToggle } from '../shared/components/LayoutElements';
+import { Footer, FloatingLangToggle } from '../shared/components/LayoutElements';
+import { Navigation } from '../shared/components/Navigation/Navigation';
 
 export const ModernPortfolio: React.FC = () => {
   const { scrollYProgress } = useScroll();

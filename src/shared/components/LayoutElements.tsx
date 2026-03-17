@@ -1,30 +1,7 @@
-import { Github, Linkedin, Mail, Menu } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import React from 'react';
 import { usePortfolioStore } from '../../core/store/usePortfolioStore';
 import { portfolioData } from '../../data/portfolioData';
-
-export const Navigation: React.FC = () => {
-  const { lang } = usePortfolioStore();
-  const t = portfolioData[lang].ui.nav;
-
-  return (
-    <nav className="main-nav">
-      <div className="nav-glass">
-        <div className="nav-links">
-          {t.map((item, index) => (
-            <a key={index} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </div>
-
-        <button className="mobile-menu-btn">
-          <Menu size={24} />
-        </button>
-      </div>
-    </nav>
-  );
-};
 
 export const Footer: React.FC = () => {
   const { lang } = usePortfolioStore();
